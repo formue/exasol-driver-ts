@@ -1,4 +1,6 @@
 name: Pull Request
+env:
+  NPM_TOKEN: 'thisisaworkaroundfornode14'
 on:
   pull_request:
 jobs:
