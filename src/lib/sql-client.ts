@@ -68,9 +68,14 @@ export class ExasolDriver implements IExasolDriver {
 
   private readonly pool: ConnectionPool<Connection>;
 
-  constructor(websocketFactory: websocketFactory, config: Partial<Config>, logger: ILogger = new Logger(LogLevel.Debug)) {
+  constructor(
+    websocketFactory: websocketFactory,
+    config: Partial<Config>,
+    logger: ILogger = new Logger(LogLevel.Debug),
+    poolSize: number = 1
+  ) {
     // Used internally to avoid parallel execution
-    this.pool = new ConnectionPool<Connection>(1, logger);
+    this.pool = new ConnectionPool<Connection>(poolSize, logger);
     this.config = {
       ...this.defaultConfig,
       ...config,
