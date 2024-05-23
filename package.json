@@ -3,6 +3,7 @@
   "version": "0.1.3",
   "description": "Exasol SQL Driver",
   "scripts": {
+    "prepare": "npm run build",
     "build": "rollup -c",
     "watch": "rollup -cw",
     "test": "jest --selectProjects unit-dom unit-node --coverage",
